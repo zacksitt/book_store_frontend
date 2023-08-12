@@ -55,7 +55,7 @@ export const deleteCustomer = (id,token) => {
       dispatch(fetchCustomers(token));
       
       dispatch(customerAction.setNotification({
-        "message":"Deleted tour successfully.",
+        "message":"Deleted customer successfully.",
         "variant":"danger"
       }))
   
@@ -84,7 +84,7 @@ export const updateCustomer = (customer,token) => {
         // dispatch(customerAction.setPlaces(response))
         dispatch(fetchCustomers(token));
         dispatch(customerAction.setNotification({
-          "message":"Updated tour successfully.",
+          "message":"Updated customer successfully.",
           "variant":"primary"
         }))
       }

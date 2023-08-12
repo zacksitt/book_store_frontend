@@ -90,7 +90,7 @@ export const deleteBook = (id,token) => {
     dispatch(fetchBooks(token));
     
     dispatch(bookAction.setNotification({
-      "message":"Deleted tour successfully.",
+      "message":"Deleted book successfully.",
       "variant":"danger"
     }))
 
@@ -99,9 +99,9 @@ export const deleteBook = (id,token) => {
 
 
 export const updateBook = (book,file,token) => {
-
+  console.log("file ",file);
     let headers = {
-        'Content-Type': 'application/json',
+        'Content-Type': 'multipart/form-data',
         'Authorization': "Bearer " + token
     }
   return async (dispatch) => {
@@ -145,7 +145,7 @@ export const updateBook = (book,file,token) => {
         //   "variant":"primary"
         // }))
 
-        dispatch(bookAction.fetchBooks(token))
+        dispatch(fetchBooks(token))
         dispatch(bookAction.setNotification({
           "message":"Created book successfully.",
           "variant":"primary"

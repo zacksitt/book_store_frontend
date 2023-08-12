@@ -69,13 +69,13 @@ function CustomerModal(props) {
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="text" name="email" value={customer.email || ''}  onChange={(e) => handleChange(e)}  required/>
+                <Form.Control type="email" name="email" value={customer.email || ''}  onChange={(e) => handleChange(e)}  required/>
             </Form.Group>
            
         
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary">
+          <Button variant="secondary" onClick={ () => props.hideCustomerModal()}>
             Close
           </Button>
           <Button variant="primary" type="submit">

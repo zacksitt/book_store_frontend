@@ -17,7 +17,6 @@ function BookModal(props) {
   const books = useSelector((state) => state.book.books)
   const authors = useSelector((state) => state.book.authors)
   const dispatch = useDispatch();
-  console.log("authors",authors);
 
   useEffect(()=> {
     dispatch(fetchBooks(token));
@@ -28,7 +27,7 @@ function BookModal(props) {
     useEffect(() => {
       
       let bookData = {...props.book};
-      console.log("book data",bookData);
+      setCoverPreviewUlr(bookData.cover);
       if(bookData.Author){
           setAuthor({
             label:bookData?.Author.name,
@@ -43,7 +42,6 @@ function BookModal(props) {
     
     const handleChange = e => {
         const { name, value } = e.target;
-        console.log(name,value);
 
         setBook(prevState => ({
             ...prevState,
@@ -55,10 +53,11 @@ function BookModal(props) {
 
       e.preventDefault();
       let bookData = {...book};
+      console.log("file",file);
       bookData.author_id = author.value;
       dispatch(updateBook(bookData,file,token));
       props.hideBookModal();
-
+      setCoverPreviewUlr('')
     //   if(place.id && file != ''){
     //     dispatch(uploadImage(file,place.id))
     //   }
@@ -72,6 +71,8 @@ function BookModal(props) {
 
       setCoverPreviewUlr(URL.createObjectURL(e.target.files[0]))
       file = e.target.files[0];
+      console.log("file",file);
+
     }
   return (
     <>
@@ -89,9 +90,9 @@ function BookModal(props) {
           <Modal.Title>Book Modal</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            { book.cover_url &&
+            { coverPreviewUrl &&
               <Form.Group className="mb-3 text-center">
-                <img src={book.cover_url} width={150}></img>
+                <img src={coverPreviewUrl} width={150}></img>
               </Form.Group>
             }
 
@@ -101,7 +102,7 @@ function BookModal(props) {
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label>Price</Form.Label>
-                <Form.Control type="text" name="price" value={book.price || ''}  onChange={(e) => handleChange(e)}  required/>
+                <Form.Control type="number" name="price" value={book.price || ''}  onChange={(e) => handleChange(e)}  required/>
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label>Author</Form.Label>

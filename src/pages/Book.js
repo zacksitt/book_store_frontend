@@ -30,6 +30,11 @@ const Book = () => {
         // dispatch(fetchAuthors(token))
         setColumns([
             {
+                name: 'Cover',
+                width:'15%',
+                selector: row => <img width="75px" alt={row.name} src={row.cover} className="p-2"/>,
+            },
+            {
                 name: 'ID',
                 selector: row => row.id,
             },
@@ -47,7 +52,7 @@ const Book = () => {
             },
             {
                 name: 'Created At',
-                selector: row => row.createdAt,
+                selector: row => new Date(row.createdAt).toLocaleDateString(),
             },{
                 name:'',
                 selector: row => <div> <a className="btn btn-primary mx-auto ml-2" onClick={ () => showBookModal(row)}>Edit</a> 
@@ -92,7 +97,7 @@ const Book = () => {
             
             <h2 className="text-primary">
                 Books
-                {/* <a className="m-2 btn btn-success" onClick={ () => showPlaceModal({})}>Add new</a> */}
+                <a className="m-2 btn btn-success" onClick={ () => showBookModal({})}>Add new</a>
             </h2>
             <DataTable
                 defaultSortFieldId={2}
