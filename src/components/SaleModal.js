@@ -41,7 +41,7 @@ function SaleModal(props) {
         <Form>
 
         <Modal.Header closeButton>
-          <Modal.Title>Sale Modal</Modal.Title>
+          <Modal.Title>Sale detail</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             

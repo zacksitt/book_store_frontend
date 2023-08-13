@@ -87,7 +87,7 @@ function BookModal(props) {
             >
 
         <Modal.Header closeButton>
-          <Modal.Title>Book Modal</Modal.Title>
+          <Modal.Title> { props.book.id ? "Edit book" : "Create new book"} </Modal.Title>
         </Modal.Header>
         <Modal.Body>
             { coverPreviewUrl &&

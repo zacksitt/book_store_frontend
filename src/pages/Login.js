@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reac
 import axios from 'axios';
 
 const LoginForm = () => {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] =  useState(false);
@@ -30,6 +31,8 @@ const LoginForm = () => {
       let user = response.data.customer.email;
       setEmail(user);
       setLoggedIn(true);
+
+
     } catch (error) {
       alert('Login failed. Please check your credentials.');
     }
@@ -52,7 +55,7 @@ const LoginForm = () => {
                 <Label for="password">Password:</Label>
                 <Input type="password" id="password" value={password} onChange={handlePasswordChange} />
               </FormGroup>
-              <Button color="primary" onClick={handleLogin}>Login</Button>
+              <a color="primary" className='btn btn-primary' onClick={handleLogin} href='/books'>Login</a>
             </Form>
           </Col>
         </Row>

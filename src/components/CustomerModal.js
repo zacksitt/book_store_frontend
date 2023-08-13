@@ -58,7 +58,7 @@ function CustomerModal(props) {
             >
 
         <Modal.Header closeButton>
-          <Modal.Title>Customer Modal</Modal.Title>
+          <Modal.Title>Edit customer</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             

@@ -31,7 +31,7 @@ useEffect(() => {
         <Form>
 
         <Modal.Header closeButton>
-          <Modal.Title>Feedback Modal</Modal.Title>
+          <Modal.Title>Feedback detail</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             

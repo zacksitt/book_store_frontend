@@ -39,6 +39,21 @@ export const fetchCustomers = (token) => {
         dispatch(customerAction.setCustomers(customers))
     }
 }
+export const logoutCustomer = (token) => {
+  let headers = {
+
+    'Content-Type': 'application/json',
+    'Authorization': "Bearer " + token
+  }
+
+  return async (dispatch) => {
+    const deleteData = async () => {
+        let response = await axios.delete(API_URL + "/api/auth/signout",{headers});
+        return response.data;
+    }
+    
+  }
+}
 export const deleteCustomer = (id,token) => {
     let headers = {
 
