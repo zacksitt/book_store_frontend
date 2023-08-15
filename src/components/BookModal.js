@@ -131,7 +131,7 @@ function BookModal(props) {
             </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary">
+          <Button variant="secondary" onClick={() => props.hideBookModal()}>
             Close
           </Button>
           <Button variant="primary" type="submit">

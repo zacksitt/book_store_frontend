@@ -1,25 +1,28 @@
 import { logoutCustomer } from "../store/customer-slice";
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const token = localStorage.getItem('token');
+const customerString = localStorage.getItem('customer');
 
 const Nav = () => {
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
     const [isLoggedOut,setisLoggedOut] = useState('') 
+    const [customer,setCustomer] = useState('')
+
     const logout = () => {
         dispatch(logoutCustomer(token))
         localStorage.removeItem('token');
         setisLoggedOut(true);
     }
-    // If logged out, redirect to the home page
-    if (isLoggedOut) {
-        // return <Redirect to="/" />;
-        
-    }
+
+    useEffect(() => {
+        let cdata = customerString ? JSON.parse(customerString) : {name:"N/A"}
+        setCustomer(cdata);
+    },[]);
 
   return (
     <>
