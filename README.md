@@ -23,7 +23,7 @@ To get started with this CMS project, follow these steps:
 Navigate to the project directory:
 
 ```bash
-cd react-cms
+cd book_store_frontend/
 ```
 Install dependencies:
 
